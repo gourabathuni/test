@@ -14,7 +14,7 @@ pipelines:
           #- mvn -B clean install -DskipTests # -B batch mode makes Maven less verbose
           - mkdir artifact
           - cd artifact
-          - mvn -B clean verify
+          - mvn -B clean install
         artifacts:
           - artifact/*
 
