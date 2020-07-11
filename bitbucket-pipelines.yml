@@ -12,11 +12,11 @@ pipelines:
           - maven
         script: # Modify the commands below to build your repository.
           #- mvn -B clean install -DskipTests # -B batch mode makes Maven less verbose
-          - mkdir artifact
-          - cd artifact
-          - mvn -B clean install
-        artifacts:
-          - artifact/*
+          #- mkdir artifact
+          #- cd artifact
+          - mvn clean install
+        #artifacts:
+         # - artifact/*
 
         
           
