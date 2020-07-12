@@ -12,16 +12,6 @@
 	<description>Flyway database migrations using Spring Boot</description>
 	<url>https://github.com/ryanpadilha</url>
 
-	<developers>
-		<developer>
-			<name>Ryan Padilha</name>
-			<organization>Research Labs</organization>
-			<email>ryan.padilha@gmail.com</email>
-			<roles>
-				<role>Sr Software Engineer</role>
-			</roles>
-		</developer>
-	</developers>
 
 	<licenses>
 		<license>
@@ -126,6 +116,26 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+			    <plugin>
+      <groupId>de.jrdatabasetools.dbworkbench</groupId>
+      <artifactId>connectorbuilder-maven-plugin</artifactId>
+      <version>2.5.12</version>
+      <configuration>
+        <connectorBuilderName>rmi</connectorBuilderName>
+        <url>jdbc:postgresql://ec2-34-203-209-227.compute-1.amazonaws.com:5432/postgres</url>
+        <user>$postgres</user>
+        <password>root</password>
+        <info>warning</info>
+      </configuration>
+      <executions>
+        <execution>
+          <phase>generate-sources</phase>
+          <goals>
+            <goal>run</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
 		</plugins>
 
 		<finalName>${project.name}</finalName>
