@@ -16,7 +16,9 @@ pipelines:
           #- cd artifact
           #- ssh $SSH_SERVER_USER@$SSH_SERVER_IP 'sudo yum update -y'
           #- ssh $SSH_SERVER_USER@$SSH_SERVER_IP 'sudo yum install postgresql-server'
-          - mvn clean install
+          #- mvn clean install
+          - mvn clean compile flyway:migrate
+          - mvn clean compile flyway:info
         #artifacts:
          # - artifact/*
 
